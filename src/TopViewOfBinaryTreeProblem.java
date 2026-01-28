@@ -1,6 +1,7 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +42,40 @@ public class TopViewOfBinaryTreeProblem {
         TopViewOfBinaryTreeProblem tree = new TopViewOfBinaryTreeProblem();
         List<Integer> topView = tree.topView(root);
         System.out.println("Top view of the binary tree: " + topView);
+
+        List<Integer> topView2 = tree.topViewPractice(root);
+        System.out.println("Top view practice of the binary tree: " + topView2);
+    }
+
+    public List<Integer> topViewPractice(TreeNode root){
+        List<Integer> resultList = new ArrayList<>();
+        if(root == null){
+            return resultList;
+        }
+        Map<Integer, Integer> map = new HashMap<>();
+        Queue<Pair> queue = new LinkedList<>();
+        queue.add(new Pair(root, 0));
+
+        while(!queue.isEmpty()){
+            Pair temp = queue.poll();
+            TreeNode tempNode = temp.node;
+            int hd = temp.hd;
+
+            if(!map.containsKey(hd)){
+                map.put(hd, tempNode.data);
+            }
+
+            if(tempNode.left!=null){
+                queue.add(new Pair(tempNode.left, hd-1));
+            } 
+            if(tempNode.right!=null){
+                queue.add(new Pair(tempNode.right, hd+1));
+            }
+        }
+        for (Integer value : map.values()) {
+            resultList.add(value);
+        }
+        return resultList;
     }
         
     
