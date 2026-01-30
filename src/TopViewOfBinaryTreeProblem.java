@@ -52,7 +52,7 @@ public class TopViewOfBinaryTreeProblem {
         if(root == null){
             return resultList;
         }
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new TreeMap<>();
         Queue<Pair> queue = new LinkedList<>();
         queue.add(new Pair(root, 0));
 
