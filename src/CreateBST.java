@@ -19,7 +19,7 @@ public class CreateBST {
         insert(root, 7);
         insert(root, 12);
         insert(root, 18);
-        insert(root, 1);
+        insert(root, 2);
 
         System.out.println("Inorder traversal of the BST:");
         inorderTraversal(root);
