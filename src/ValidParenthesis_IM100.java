@@ -3,8 +3,12 @@ package src;
 import java.util.Stack;
 
 public class ValidParenthesis_IM100 {
+    public static void main(String[] args) {
+        
+        System.out.println("prac is valid : "+isValid("()[]{}"));
+    }
     //java solution using stack
-    public boolean isValid(String s){
+    public static boolean isValid(String s){
         Stack<Character> stack = new Stack<>();
         for(char c : s.toCharArray()){
             if(c == '(' || c == '{' || c == '['){
@@ -18,7 +22,8 @@ public class ValidParenthesis_IM100 {
         return stack.isEmpty();
     }
 
-    public boolean isMatching(char open, char close){
+
+    public static boolean isMatching(char open, char close){
         return (open == '(' && close == ')') ||
                (open == '{' && close == '}') ||
                (open == '[' && close == ']');    
